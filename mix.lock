@@ -1,0 +1,2 @@
+[ "cowboy": {:git,"https://github.com/extend/cowboy.git","dbc1bc6d91548b199fc86a477bdc1873faa890ac",[]},
+  "ranch": {:git,"https://github.com/extend/ranch.git","5c5a87fe1ed4740bf9b81399d00cceb0213c7a2c",[]} ]

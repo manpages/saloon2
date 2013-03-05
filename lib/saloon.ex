@@ -1,0 +1,2 @@
+defmodule Saloon do
+end
