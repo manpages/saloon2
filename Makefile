@@ -1,15 +1,14 @@
 saloon_src := $(wildcard lib/*ex) \
 	$(wildcard lib/**/*.ex) \
 	mix.exs
+saloon_deps := $(wildcard deps/*)
 
 .PHONY: all test testex iex clean wipe
 
-all: deps ebin sys.config
+all: ebin sys.config
 
 ebin: $(saloon_src)
-	@ERL_LIBS=.:deps mix compile
-deps: $(saloon_src)
-	@ERL_LIBS=.:deps mix deps.get
+	MIX_ENV=dev mix do deps.get, compile
 
 sys.config: config.exs lib/config.ex
 	@ERL_LIBS=.:deps elixir -e "config = Saloon.Config.file!(%b{config.exs}); config.sys_config!(%b{sys.config})"
