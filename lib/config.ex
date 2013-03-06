@@ -11,13 +11,14 @@ defmodule Saloon.Config do
         http_port: config.http_port,
         http_dispatch: [{:_, [
           {"/static/[...]", :cowboy_static, [
-            directory: {:priv_dir, :static, []},
+            directory: ["priv","static"],
             mimetypes: [
               {".txt", ["text/plain"]},
               {".css", ["text/css"]},
               {".js",  ["application/javascript"]},
               {".png", ["image/png"]},
               {".jpg", ["image/jpeg"]},
+              {".log", ["text/plain"]},
             ]
           ]},
           {:_, Saloon.Index, []},

@@ -10,7 +10,7 @@ all: ebin sys.config
 ebin: $(saloon_src)
 	MIX_ENV=dev mix do deps.get, compile
 
-sys.config: config.exs lib/config.ex
+sys.config: ebin config.exs lib/config.ex
 	@ERL_LIBS=.:deps elixir -e "config = Saloon.Config.file!(%b{config.exs}); config.sys_config!(%b{sys.config})"
 
 testex: all
