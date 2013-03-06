@@ -9,7 +9,8 @@ defmodule Saloon.Mixfile do
 
   # Configuration for the OTP application
   def application do
-    []
+    [applications: [:crypto, :ranch, :cowboy, :exconfig],
+     mod: {Saloon.App, []}]
   end
 
   # Returns the list of dependencies in the format:
@@ -18,6 +19,7 @@ defmodule Saloon.Mixfile do
     [
       {:cowboy, github: "extend/cowboy"},
         {:ranch, github: "extend/ranch"},
+      {:exconfig, github: "yrashk/exconfig"},
     ]
   end
 end
