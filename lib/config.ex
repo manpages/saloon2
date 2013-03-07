@@ -8,6 +8,9 @@ defmodule Saloon.Config do
   def sys_config(config) do
     [
       saloon: [
+        controller_prefix: "Elixir-Saloon-",
+        controller_postfix: "-Controller",
+        c404: Saloon.C404,
         http_port: config.http_port,
         http_dispatch: [{:_, [
           {"/static/[...]", :cowboy_static, [
