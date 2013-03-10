@@ -4,9 +4,7 @@ defmodule Saloon.Index do
   end
 
   def handle(req, state) do
-    IO.puts "#{inspect controller(req)}"
-    {:ok, req} = :cowboy_req.reply 200, [], "<h1>It works!</h1>", req
-    {:ok, req, state}
+    apply controller(req), :handle, [req, [__MODULE__]]
   end
 
   def terminate(_,_,_) do
@@ -22,8 +20,8 @@ defmodule Saloon.Index do
         env[:controller_prefix] :: binary, 
         controller :: binary,
         env[:controller_postfix] :: binary>>)
-    catch 
-      x,y -> IO.puts "#{inspect {x,y}}"; env[:c404]
+    catch _,_ ->
+      env[:c404]
     end
   end
 end
