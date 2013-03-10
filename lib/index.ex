@@ -3,7 +3,7 @@ defmodule Saloon.Index do
     {:ok, req, :undefined}
   end
 
-  def handle(req, state) do
+  def handle(req, _state) do
     apply controller(req), :handle, [req, [__MODULE__]]
   end
 
