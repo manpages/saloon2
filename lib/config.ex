@@ -4,13 +4,16 @@ defmodule Saloon.Config do
   defproperty http_port, default: 55556
   defproperty template_root, default: 'priv/templates'
   defproperty silent, default: false
+  defproperty controller_prefix, default: "Elixir-Saloon-"
+  defproperty controller_postfix, default: "-Controller"
+  defproperty controller_404, default: Saloon.C404
 
   def sys_config(config) do
     [
       saloon: [
-        controller_prefix: "Elixir-Saloon-",
-        controller_postfix: "-Controller",
-        c404: Saloon.C404,
+        controller_prefix: config.controller_prefix,
+        controller_postfix: config.controller_postfix,
+        c404: config.controller_404,
         http_port: config.http_port,
         http_dispatch: [{:_, [
           {"/static/[...]", :cowboy_static, [
