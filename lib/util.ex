@@ -5,4 +5,9 @@ defmodule Saloon.Util do
       element 1, :cowboy_req.cookie(key, req, {:undefined})
     end
   end
+  defmodule Post do
+    def get(key, req) do
+      :proplists.get_value key, element(1, :cowboy_req.bosy_qs(req)), :undefined
+    end
+  end
 end
