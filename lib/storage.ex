@@ -11,7 +11,7 @@ defmodule Saloon.Storage do
     #/TODO
     def select(from, options // []) do
       options = [{:from, from} | options]
-      compile(:select, [:what, :from, :join, :left_join, :right_join, :where, :group, :order, :limit], "SELECT ", options)
+      compile(:select, [:distinct, :what, :from, :join, :left_join, :right_join, :where, :group, :order, :limit], "SELECT ", options)
     end
 
     def insert(into, values, options // []) do
@@ -46,6 +46,7 @@ defmodule Saloon.Storage do
 
     end
 
+    defp compile!(:select, :distinct, _opt), do: nil
     defp compile!(:select, :what, _opt), do: nil
     defp compile!(:select, :from, _opt), do: nil
     defp compile!(:select, :join, _opt), do: nil
