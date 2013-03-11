@@ -8,7 +8,7 @@ defmodule Saloon.App do
     lc x inlist :filelib.wildcard('ebin/*.beam'), do: :code.ensure_loaded(list_to_atom( Path.basename(Path.basename(x, '.beam')) ))
 
     # emysql. I'll make storage backend configurable... some day.
-    :emysql.add_pool(:saloon, env[:emysql_pool_size], 
+    :emysql.add_pool(env[:emysql_pool], env[:emysql_pool_size], 
                       env[:emysql_user], env[:emysql_password], 
                       env[:emysql_host], env[:emysql_port], 
                       env[:emysql_database], :utf8)

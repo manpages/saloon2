@@ -13,6 +13,7 @@ defmodule Saloon.Config do
   defproperty emysql_host, default: 'localhost'
   defproperty emysql_port, default: 3306
   defproperty emysql_database, default: 'hello_database'
+  defproperty emysql_pool, default: :saloon
 
   def sys_config(config) do
     [
@@ -20,6 +21,7 @@ defmodule Saloon.Config do
         controller_prefix: config.controller_prefix,
         controller_postfix: config.controller_postfix,
         c404: config.controller_404,
+        emysql_pool: config.emysql_pool,
         emysql_user: config.emysql_user,
         emysql_password: config.emysql_password,
         emysql_pool_size: config.emysql_pool_size,
