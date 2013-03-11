@@ -1,3 +1,4 @@
 Saloon.Config.config do
   config.http_port 8586
+  config.emysql_password '123qwezzz101!_K'
 end

@@ -7,6 +7,12 @@ defmodule Saloon.Config do
   defproperty controller_prefix, default: "Elixir-Saloon-"
   defproperty controller_postfix, default: "-Controller"
   defproperty controller_404, default: Saloon.C404
+  defproperty emysql_user, default: 'root'
+  defproperty emysql_password, default: ''
+  defproperty emysql_pool_size, default: 2
+  defproperty emysql_host, default: 'localhost'
+  defproperty emysql_port, default: 3306
+  defproperty emysql_database, default: 'hello_database'
 
   def sys_config(config) do
     [
@@ -14,6 +20,12 @@ defmodule Saloon.Config do
         controller_prefix: config.controller_prefix,
         controller_postfix: config.controller_postfix,
         c404: config.controller_404,
+        emysql_user: config.emysql_user,
+        emysql_password: config.emysql_password,
+        emysql_pool_size: config.emysql_pool_size,
+        emysql_host: config.emysql_host,
+        emysql_port: config.emysql_port,
+        emysql_database: config.emysql_database,
         http_port: config.http_port,
         http_dispatch: [{:_, [
           {"/static/[...]", :cowboy_static, [

@@ -9,7 +9,7 @@ defmodule Saloon.Mixfile do
 
   # Configuration for the OTP application
   def application do
-    [applications: [:crypto, :ranch, :cowboy, :exconfig],
+    [applications: [:crypto, :ranch, :cowboy, :exconfig, :emysql],
      mod: {Saloon.App, []}]
   end
 
@@ -20,6 +20,7 @@ defmodule Saloon.Mixfile do
       {:cowboy, github: "extend/cowboy"},
         {:ranch, github: "extend/ranch"},
       {:exconfig, github: "yrashk/exconfig"},
+      {:emysql, github: "Eonblast/Emysql"},
     ]
   end
 end
